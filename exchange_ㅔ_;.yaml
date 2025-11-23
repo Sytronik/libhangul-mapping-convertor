@@ -1,0 +1,10 @@
+name: ㅔ<->;
+conversions:
+  - targets:
+      - hangul-keyboard-2.xml
+      - hangul-keyboard-2-full.xml
+    mapping:
+      p: ;
+      ;: p
+      P: ":"
+      :: P
