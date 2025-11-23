@@ -24,13 +24,13 @@ def get_args():
         help='mapping confiiguration',
     )
     parser.add_argument(
-        '--in_path', '-i', type=pathlib.Path, required=True, help='path for input files'
+        '--in_path', '-i', type=pathlib.Path, default='./original', help='path for input files'
     )
     parser.add_argument(
         '--out_path',
         '-o',
         type=pathlib.Path,
-        default='./',
+        default='./converted',
         help='path for output files. Default is current directory.',
     )
 
@@ -78,6 +78,7 @@ def convert(name, mapping, targets, in_path, out_path):
 
 
 def main(name, conversions, in_path, out_path):
+    out_path.mkdir(parents=True, exist_ok=True)
     for conv in conversions:
         convert(name, conv['mapping'], conv['targets'], in_path, out_path)
 
