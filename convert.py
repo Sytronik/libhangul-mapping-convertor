@@ -9,29 +9,30 @@
 import argparse
 import os
 import pathlib
-import sys
 import xml.etree.ElementTree as ET
 import yaml
 
 
 def get_args():
-    """parsing arguments
-    """
-    parser = argparse.ArgumentParser(
-            "Keyboard mapping convertor for libhangul")
-    parser.add_argument('--config', '-c',
-                        # type=argparse.FileType('r'),
-                        default='config.yaml',
-                        help="mapping confiiguration")
-    parser.add_argument('--in_path' , '-i',
-                        type=pathlib.Path,
-                        required=True,
-                        help="path for input files")
-    parser.add_argument('--out_path', '-o',
-                        type=pathlib.Path,
-                        default='./',
-                        help="path for output files. Default is current directory.")
-
+    """parsing arguments"""
+    parser = argparse.ArgumentParser('Keyboard mapping convertor for libhangul')
+    parser.add_argument(
+        '--config',
+        '-c',
+        # type=argparse.FileType('r'),
+        default='config.yaml',
+        help='mapping confiiguration',
+    )
+    parser.add_argument(
+        '--in_path', '-i', type=pathlib.Path, required=True, help='path for input files'
+    )
+    parser.add_argument(
+        '--out_path',
+        '-o',
+        type=pathlib.Path,
+        default='./',
+        help='path for output files. Default is current directory.',
+    )
 
     return parser.parse_args()
 
@@ -47,11 +48,11 @@ def _update_mapping(mapping):
     keys = _expand_eliments(mapping.keys())
     values = _expand_eliments(mapping.values())
 
-    return dict(zip([hex(ord(k)) for k in keys],
-                    [hex(ord(v)) for v in values]))
+    return dict(zip([hex(ord(k)) for k in keys], [hex(ord(v)) for v in values]))
 
 
 _CONVERTED = 'converted'
+
 
 def convert(name, mapping, targets, in_path, out_path):
     """convert mappings"""
@@ -63,8 +64,7 @@ def convert(name, mapping, targets, in_path, out_path):
 
         root = tree.getroot()
         if _CONVERTED in root.keys():
-            print("'{}' is already converted for '{}'".format(
-                  in_file, root.get(_CONVERTED)))
+            print(f"'{in_file}' is already converted for '{root.get(_CONVERTED)}'")
             continue
 
         root.set(_CONVERTED, name)
@@ -74,9 +74,8 @@ def convert(name, mapping, targets, in_path, out_path):
             if key in mapping.keys():
                 item.attrib['key'] = mapping[key]
 
-        tree.write(os.path.join(out_path, xml_file), encoding='utf-8',
-                   xml_declaration=True)
-            
+        tree.write(os.path.join(out_path, xml_file), encoding='utf-8', xml_declaration=True)
+
 
 def main(name, conversions, in_path, out_path):
     for conv in conversions:
