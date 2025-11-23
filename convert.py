@@ -1,6 +1,10 @@
-# -*- coding: utf-8 -*-
-'''libhangul mapping convertor
-'''
+# /// script
+# requires-python = ">=3.9"
+# dependencies = [
+#     "pyyaml",
+# ]
+# ///
+"""libhangul mapping convertor"""
 
 import argparse
 import os
