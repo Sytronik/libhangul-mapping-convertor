@@ -48,6 +48,8 @@ On Mac, [구름 입력기](https://github.com/gureum/gureum) uses [libhangul](ht
                            path for output files. Default is ./converted
    ```
  1. copy the output file to the input method's directory. With [구름 입력기](https://github.com/gureum/gureum) installed on a Mac, it can be found under `/Library/Input Methods/Gureum.app/Contents/Frameworks/Hangul.framework/Versions/A/Resources/keyboards`.
+    * You must overwrite the original files. If you rename the original files and keep their locations to backup them, 구름 입력기 uses the renamed original files.
+    * `./original` directory contains the backup of the original files, so you can use them to revert the changes.
  1. Restart the input method to apply the new mapping. On Mac, Activity Monitor can be used to restart the input method.
  1. For 2-3 steps, `apply_to_gureum.sh` can be used instead.
 
