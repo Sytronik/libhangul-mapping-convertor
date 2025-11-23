@@ -51,11 +51,11 @@ On Mac, [구름 입력기](https://github.com/gureum/gureum) uses [libhangul](ht
     * You must overwrite the original files. If you rename the original files and keep their locations to backup them, 구름 입력기 uses the renamed original files.
     * `./original` directory contains the backup of the original files, so you can use them to revert the changes.
  1. Restart the input method to apply the new mapping. On Mac, Activity Monitor can be used to restart the input method.
- 1. For 2-3 steps, `apply_to_gureum.sh` can be used instead.
+ 1. For 2-3 steps, `apply_to_gureum.sh <CONFIG_FILE.yaml>` can be used instead.
 
 ## Configurations
  * `config.yaml`
    * 키보드 펌웨어가 Colemak-DH일 때 두벌식 사용
    * QWERTY의 ; 자리를 ㅔ로 사용하게 되어있음
  * `exchange_ㅔ_;.yaml`
-   * 키보드 펌웨어는 QWERTY이고 구름입력기에서 로마자로 Colemak을 사용할 때, 두벌식에서만 ㅔ와 ;를 바꾸고 싶을 때 사용
+   * 키보드 펌웨어는 QWERTY이고 구름 입력기에서 로마자로 Colemak을 사용할 때, 두벌식에서만 ㅔ와 ;를 바꾸고 싶을 때 사용
