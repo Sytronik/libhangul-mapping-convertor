@@ -34,8 +34,8 @@ def get_args():
 
 def _expand_eliments(eliments):
     eliments = list(eliments)
-    eliments.extend([elem.upper() for elem in eliments])
-    
+    eliments.extend([elem for elem in eliments])
+
     return eliments
 
 
