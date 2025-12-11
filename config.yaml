@@ -23,3 +23,22 @@ conversions:
       l: i
       n: k
       m: h
+      E: F
+      R: P
+      T: B
+      S: R
+      D: S
+      F: T
+      V: D
+      B: V
+      Y: J
+      U: L
+      I: U
+      O: Y
+      P: O
+      H: M
+      J: N
+      K: E
+      L: I
+      N: K
+      M: H
